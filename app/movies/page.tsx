@@ -78,7 +78,7 @@ const MoviesListPage = () => {
 
   return (
     <div className="flex flex-col justify-center mt-10 w-full lg:w-[1440px] mx-auto">
-      <div className="flex sticky items-center justify-between mb-10">
+      <div className="flex items-center justify-between mb-10">
         <h1 className="text-3xl font-bold">
           {!searchKeyword ? "Popular" : "Searched"} Movies
         </h1>

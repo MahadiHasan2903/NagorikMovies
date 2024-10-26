@@ -133,7 +133,6 @@ const getMovieDetails = async (movieId: number) => {
     const response = await fetchZodTyped(
       `${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}`,
       {
-        cache: "force-cache",
         next: { revalidate: 60 },
         method: "GET",
         headers: {
@@ -242,7 +241,7 @@ const getMovieRecommendations = async (
     const response = await fetchZodTyped(
       `${BASE_URL}/movie/${movieId}/recommendations?api_key=${TMDB_API_KEY}&page=${page}&pageSize=${pageSize}`,
       {
-        cache: "force-cache",
+        next: { revalidate: 60 },
         method: "GET",
         headers: {
           "Content-Type": "application/json",

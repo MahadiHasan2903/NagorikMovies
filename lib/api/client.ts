@@ -17,7 +17,7 @@ export function fetchZodTyped<T>(
   return fetch(url, uConfig)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Raw response:", JSON.stringify(data, null, 2)); //For debugging purpose
+      // console.log("Raw response:", JSON.stringify(data, null, 2)); //For debugging purpose
       const result = schema.safeParse(data);
       if (!result.success) {
         throw new Error(`Validation error: ${result.error.message}`);
