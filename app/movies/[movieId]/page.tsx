@@ -4,18 +4,19 @@ import poster from "@/public/poster.jpeg";
 import Image from "next/image";
 import RecommendedMovies from "@/lib/components/RecommendedMovies";
 
-interface MovieDetailsPageProps {
-  params: {
-    movieId: string;
-  };
+type Params = Promise<{ movieId: string }>;
+
+interface PropsType {
+  params: Params;
 }
 
 // Mark the component as async
-const MovieDetailsPage: FC<MovieDetailsPageProps> = async ({ params }) => {
-  const resolvedParams = await params;
-  const movieId = Number(resolvedParams.movieId);
-  const movieDetails = await getMovieDetails(movieId);
-  const movieCasts = await getMovieCasts(movieId);
+const MovieDetailsPage: FC<PropsType> = async ({ params }) => {
+  const { movieId } = await params;
+  const movieIdNumber = Number(movieId);
+
+  const movieDetails = await getMovieDetails(movieIdNumber);
+  const movieCasts = await getMovieCasts(movieIdNumber);
 
   return (
     <div className="mt-5 w-full lg:w-[1440px] mx-auto px-2">
@@ -57,7 +58,7 @@ const MovieDetailsPage: FC<MovieDetailsPageProps> = async ({ params }) => {
         <h1 className="text-2xl w-full pb-3 mb-5 font-bold border-b border-black border-opacity-5">
           Recommended Movies
         </h1>
-        <RecommendedMovies movieId={movieId} />
+        <RecommendedMovies movieId={movieIdNumber} />
       </div>
     </div>
   );
