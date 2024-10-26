@@ -10,6 +10,7 @@ import {
   searchMovieKeywordSchema,
   SearchMovieKeywordType,
 } from "@/lib/schemas";
+import Loader from "@/lib/components/Loader";
 
 const MoviesListPage = () => {
   const [movies, setMovies] = useState<MovieSummary[]>([]); // Stores the list of movies
@@ -78,7 +79,9 @@ const MoviesListPage = () => {
   return (
     <div className="flex flex-col justify-center mt-10 w-full lg:w-[1440px] mx-auto">
       <div className="flex sticky items-center justify-between mb-10">
-        <h1 className="text-3xl font-bold">Popular Movies</h1>
+        <h1 className="text-3xl font-bold">
+          {!searchKeyword ? "Popular" : "Searched"} Movies
+        </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="w-1/2 flex items-start gap-x-3"
@@ -122,7 +125,7 @@ const MoviesListPage = () => {
           <p className="text-4xl font-bold">No movies found</p>
         </div>
       )}
-      {isFetching && <p className="text-center mt-4">Loading...</p>}
+      {isFetching && <Loader />}
     </div>
   );
 };
