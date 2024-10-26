@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+export const searchMovieKeywordSchema = z.object({
+  keywords: z.string().min(2, "Please enter at least 2 characters to search."),
+});
+
+export type SearchMovieKeywordType = z.infer<typeof searchMovieKeywordSchema>;
+
 /**
  * Schema for validating the response structure of a movie collection.
  * This includes pagination details and an array of movie objects.

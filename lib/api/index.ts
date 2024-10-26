@@ -22,6 +22,7 @@ const getPopularMovies = async (page: number, pageSize: number) => {
     const response = await fetchZodTyped(
       `${BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&page=${page}&pageSize=${pageSize}`,
       {
+        cache: "force-cache",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -68,9 +69,9 @@ const getPopularMovies = async (page: number, pageSize: number) => {
  * @returns An object with movie results, current page, total pages, and total results.
  */
 const getSearchedMovies = async (
-  keywords: string,
   page: number,
-  pageSize: number
+  pageSize: number,
+  keywords: string
 ) => {
   try {
     // Fetch searched movies
@@ -79,6 +80,7 @@ const getSearchedMovies = async (
         keywords
       )}`,
       {
+        cache: "force-cache",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -131,6 +133,8 @@ const getMovieDetails = async (movieId: number) => {
     const response = await fetchZodTyped(
       `${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}`,
       {
+        cache: "force-cache",
+        next: { revalidate: 60 },
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -188,6 +192,7 @@ const getMovieCasts = async (movieId: number) => {
     const response = await fetchZodTyped(
       `${BASE_URL}/movie/${movieId}/credits?api_key=${TMDB_API_KEY}`,
       {
+        cache: "force-cache",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -237,6 +242,7 @@ const getMovieRecommendations = async (
     const response = await fetchZodTyped(
       `${BASE_URL}/movie/${movieId}/recommendations?api_key=${TMDB_API_KEY}&page=${page}&pageSize=${pageSize}`,
       {
+        cache: "force-cache",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
