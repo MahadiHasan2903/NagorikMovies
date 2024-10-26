@@ -1,7 +1,13 @@
 import { z } from "zod";
 
 export const searchMovieKeywordSchema = z.object({
-  keywords: z.string().min(2, "Please enter at least 2 characters to search."),
+  keywords: z
+    .string()
+    .min(1, "Please enter keywords to search.")
+    .refine(
+      (value) => value.trim().length > 0,
+      "Please enter keywords to search."
+    ),
 });
 
 export type SearchMovieKeywordType = z.infer<typeof searchMovieKeywordSchema>;

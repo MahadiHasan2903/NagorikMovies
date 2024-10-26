@@ -13,13 +13,13 @@ const MovieCard = ({ movie }: { movie: MovieSummary }) => {
             src={poster || movie.poster_path}
             alt={`${movie.title} cover`}
             width={800}
-            height={200}
+            height={500}
             className="object-contain w-full animate-slide-in"
           />
         </Link>
 
         <div className="text-center ">
-          <div className="my-2 text-xl font-semibold ">
+          <div className="my-2 text-2xl font-semibold ">
             {movie.title.length > 30
               ? `${movie.title.slice(0, 25)}...`
               : movie.title}

@@ -15,9 +15,9 @@ const Navbar = () => {
     <div className="w-full relative z-[99] flex items-center justify-center bg-white">
       <div className="flex items-center justify-between w-full xl:w-[1440px] mx-auto">
         <Link href="/">
-          <div className="w-[150px] h-[80px] relative">
+          <div className="w-[200px] h-[80px] relative text-left">
             <Image
-              src="/nagorik.jpeg"
+              src="/logo.png"
               alt="logo"
               layout="fill"
               objectFit="contain"
