@@ -6,7 +6,7 @@ import poster from "@/public/poster.jpeg";
 
 const MovieCard = ({ movie }: { movie: MovieSummary }) => {
   return (
-    <div className="w-full mb-10">
+    <div className="w-full mb-10 border border-black p-2 border-opacity-5">
       <div className="w-full flex flex-col items-center justify-center">
         <Link href={`/movies/${movie.id}`} className="w-full">
           <Image
