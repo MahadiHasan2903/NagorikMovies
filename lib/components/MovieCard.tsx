@@ -14,12 +14,12 @@ const MovieCard = ({ movie }: { movie: MovieSummary }) => {
             alt={`${movie.title} cover`}
             width={800}
             height={500}
-            className="object-contain w-full animate-slide-in"
+            className="object-contain w-full"
           />
         </Link>
 
         <div className="text-center ">
-          <div className="my-2 text-2xl font-semibold ">
+          <div className="my-2 text-xl lg:text-2xl font-semibold ">
             {movie.title.length > 30
               ? `${movie.title.slice(0, 25)}...`
               : movie.title}

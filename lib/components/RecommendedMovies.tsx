@@ -64,7 +64,7 @@ const RecommendedMovies = ({ movieId }: { movieId: number }) => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center mt-600. w-full lg:w-[1440px] mx-auto">
+    <div className="flex flex-col justify-center mt-600 w-full lg:w-[1440px] mx-auto">
       {movies.length > 0 ? (
         <div className="grid grid-cols-1 gap-10 mx-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:mx-0">
           {/* Render each movie card */}

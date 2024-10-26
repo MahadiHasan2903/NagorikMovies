@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export const navItems = [
   { to: "/", label: "Home" },
@@ -13,9 +14,9 @@ export const navItems = [
 const Navbar = () => {
   return (
     <div className="w-full relative z-[99] flex items-center justify-center bg-white">
-      <div className="flex items-center justify-between w-full xl:w-[1440px] mx-auto">
+      <div className="flex items-center justify-between w-full xl:w-[1440px] mx-auto pr-5 lg:pr-0">
         <Link href="/">
-          <div className="w-[200px] h-[80px] relative text-left">
+          <div className="w-[100px] lg:w-[200px] h-[80px] relative text-left">
             <Image
               src="/logo.png"
               alt="logo"
@@ -27,7 +28,7 @@ const Navbar = () => {
         </Link>
 
         {/* Navbar section */}
-        <div className="justify-center hidden md:flex">
+        <div className="justify-center hidden xl:flex">
           <div className="relative flex items-center w-full gap-x-5 lg:gap-x-8 xl:gap-x-12">
             {navItems.map((link, index) => (
               <Link
@@ -40,6 +41,7 @@ const Navbar = () => {
             ))}
           </div>
         </div>
+        <RxHamburgerMenu size={25} className="block xl:hidden cursor-pointer" />
       </div>
     </div>
   );

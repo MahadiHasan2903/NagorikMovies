@@ -77,14 +77,14 @@ const MoviesListPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center mt-10 w-full lg:w-[1440px] mx-auto">
-      <div className="flex items-center justify-between mb-10">
-        <h1 className="text-3xl font-bold">
+    <div className="flex flex-col justify-center mt-5 lg:mt-10 w-full lg:w-[1440px] mx-auto">
+      <div className="flex gap-y-3 lg:gap-y-0 lg:flex-row flex-col items-start lg:items-center justify-between mb-10 px-4">
+        <h1 className="text-2xl lg:text-3xl font-bold">
           {!searchKeyword ? "Popular" : "Searched"} Movies
         </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-1/2 flex items-start gap-x-3"
+          className="w-full lg:w-1/2 flex items-start gap-x-3"
         >
           <div className="w-full">
             <Controller

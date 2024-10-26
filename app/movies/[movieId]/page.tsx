@@ -18,21 +18,21 @@ const MovieDetailsPage: FC<MovieDetailsPageProps> = async ({ params }) => {
   const movieCasts = await getMovieCasts(movieId);
 
   return (
-    <div className="mt-5 w-full lg:w-[1440px] mx-auto">
+    <div className="mt-5 w-full lg:w-[1440px] mx-auto px-2">
       <h1 className="text-2xl w-full pb-3 mb-5 font-bold border-b border-black border-opacity-5">
         Movie Details
       </h1>
-      <div className="flex items-start mb-20">
-        <div className="w-1/3">
+      <div className="flex flex-col lg:flex-row items-start mb-10 lg:mb-20 gap-y-3 lg:gap-y-0">
+        <div className="w-full lg:w-1/3">
           <Image
             src={poster || movieDetails?.poster_path}
             alt={`${movieDetails?.title} cover`}
             width={400}
             height={600}
-            className="w-[400px] h-[600px]"
+            className="w-[400px] !h-[350px] lg:h-[600px]"
           />
         </div>
-        <div className="flex flex-col gap-y-3 w-2/3">
+        <div className="flex flex-col gap-y-3 w-full lg:w-2/3">
           <div className="text-xl font-bold">
             Title: <span>{movieDetails?.title}</span>
           </div>
