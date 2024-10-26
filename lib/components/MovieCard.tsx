@@ -10,7 +10,7 @@ const MovieCard = ({ movie }: { movie: MovieSummary }) => {
       <div className="w-full flex flex-col items-center justify-center">
         <Link href={`/movies/${movie.id}`} className="w-full">
           <Image
-            src={poster || movie.poster_path}
+            src={movie.poster_path || poster}
             alt={`${movie.title} cover`}
             width={800}
             height={500}

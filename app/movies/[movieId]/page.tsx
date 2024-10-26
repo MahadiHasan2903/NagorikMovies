@@ -25,7 +25,7 @@ const MovieDetailsPage: FC<MovieDetailsPageProps> = async ({ params }) => {
       <div className="flex flex-col lg:flex-row items-start mb-10 lg:mb-20 gap-y-3 lg:gap-y-0">
         <div className="w-full lg:w-1/3">
           <Image
-            src={poster || movieDetails?.poster_path}
+            src={movieDetails?.poster_path || poster}
             alt={`${movieDetails?.title} cover`}
             width={400}
             height={600}
